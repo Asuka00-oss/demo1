@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #282c34;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #61dafb;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #21a1f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Solar System Fact</h1>
+        <p id="fact"></p>
+        <button id="nextFactButton">Show Next Fact</button>
+    </div>
+    <script>
+        const facts = [
+            "The solar system is about 4.6 billion years old.",
+            "There are eight planets in the solar system.",
+            "The largest planet in the solar system is Jupiter.",
+            "Mercury is the closest planet to the Sun.",
+            "Venus is the hottest planet in the solar system.",
+            "Earth is the only planet known to support life.",
+            "Mars is known as the Red Planet due to its iron oxide surface.",
+            "Saturn is famous for its prominent ring system.",
+            "Uranus rotates on its side, making its axial tilt about 98 degrees.",
+            "Neptune is the farthest planet from the Sun and has the strongest winds in the solar system."
+        ];
+
+        let currentFactIndex = 0;
+
+        const factElement = document.getElementById('fact');
+        const nextFactButton = document.getElementById('nextFactButton');
+
+        function showNextFact() {
+            factElement.textContent = facts[currentFactIndex];
+            currentFactIndex = (currentFactIndex + 1) % facts.length; // Loop back to the start
+        }
+
+        nextFactButton.addEventListener('click', showNextFact);
+
+        // Show the first fact on page load
+        showNextFact();
+    </script>
+</body>
+</html>
